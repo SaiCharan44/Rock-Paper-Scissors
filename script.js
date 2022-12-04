@@ -5,9 +5,13 @@ function getComputerChoice() {
   return computerChoice
 }
 
+
 function getResult(playerChoice, computerChoice) {
+ 
   
   let score;
+
+
   if (playerChoice === computerChoice) {
     score = 0
 
@@ -21,13 +25,18 @@ function getResult(playerChoice, computerChoice) {
   } else if (playerChoice === "Scissors" && computerChoice === "Paper") {
     score = 1
 
+ 
   } else {
     score = -1
   }
+
+
   return score
 }
 
+
 function showResult(score, playerChoice, computerChoice) {
+
   
   let result = document.getElementById('result')
   switch (score) {
@@ -44,9 +53,10 @@ function showResult(score, playerChoice, computerChoice) {
 
   let playerScore = document.getElementById('player-score')
   let hands = document.getElementById('hands')
-  playerScore.innerText = `Your Score:${Number(playerScore.innerText) + score}`
+  playerScore.innerText = `${Number(playerScore.innerText) + score}`
     hands.innerText = `👱 ${playerChoice} vs 🤖 ${computerChoice}`
 }
+
 
 function onClickRPS(playerChoice) {
   const computerChoice = getComputerChoice()
@@ -54,17 +64,22 @@ function onClickRPS(playerChoice) {
   showResult(score, playerChoice.value, computerChoice)
 }
 
+
 function playGame() {
+  
   let rpsButtons = document.querySelectorAll('.rpsButton')
+
 
 
   rpsButtons.forEach(rpsButton => {
     rpsButton.onclick = () => onClickRPS(rpsButton)
   })
 
+  
   let endGameButton = document.getElementById('endGameButton')
   endGameButton.onclick = () => endGame()
 }
+
 
 function endGame() {
   let playerScore = document.getElementById('player-score')
@@ -76,8 +91,3 @@ function endGame() {
 }
 
 playGame()
-
-
-
-
-
